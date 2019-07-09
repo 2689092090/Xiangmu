@@ -34,9 +34,9 @@
 		</bean>
 		<mvc:resources location="/statics/" mapping="/statics/**"/>
 		<mvc:annotation-driven/>
-		<context:component-scan base-package="cn.dx.controller,cn.dx.service"/>
+		<context:component-scan base-package="cn.appinfodb.controller,cn.appinfodb.service"/>
 		<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		    <property name="prefix" value="/WEB-INF/jsp/"></property>
+		    <property name="prefix" value="/WEB-INF/jsp/*/"></property>
 		    <property name="suffix" value=".jsp"></property>
 		</bean>
 </beans> 

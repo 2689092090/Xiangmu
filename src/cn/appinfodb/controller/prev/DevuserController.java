@@ -1,5 +1,5 @@
 package cn.appinfodb.controller.prev;
 
-public class SDsf {
+public class DevuserController {
 
 }
