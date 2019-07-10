@@ -4,6 +4,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd mybatis-3-config.dtd">
 <configuration>
    <typeAliases>
-        <package name="cn.dx.entity"/>
+        <package name="cn.appinfodb.entity"/>
    </typeAliases>
 </configuration>

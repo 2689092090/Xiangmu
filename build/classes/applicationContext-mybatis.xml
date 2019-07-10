@@ -30,13 +30,13 @@
 		    <property name="dataSource" ref="dataSource"/>
 		</bean>
 		<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		    <property name="basePackage" value="cn.dx.dao"></property>
+		    <property name="basePackage" value="cn.appinfodb.dao"></property>
+		</bean>
+		<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		    <property name="prefix" value="/WEB-INF/jsp/"></property>
+		    <property name="suffix" value=".jsp"></property>
 		</bean>
 		<mvc:resources location="/statics/" mapping="/statics/**"/>
 		<mvc:annotation-driven/>
-		<context:component-scan base-package="cn.appinfodb.controller,cn.appinfodb.service"/>
-		<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		    <property name="prefix" value="/WEB-INF/jsp/*/"></property>
-		    <property name="suffix" value=".jsp"></property>
-		</bean>
+		<context:component-scan base-package="cn.appinfodb.service,cn.appinfodb.controller"/>
 </beans> 
