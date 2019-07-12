@@ -55,6 +55,12 @@ public class AppinfoController {
 		model.addAttribute("categoryLevel1List",chayiji);
 		model.addAttribute("flatFormList",pintai2);
 		model.addAttribute("fen",fen);
+		if(yiji != 0) {
+			model.addAttribute("categoryLevel2List",catedao.chaerji(yiji));
+		}
+		if(erji != 0) {
+			model.addAttribute("categoryLevel3List",catedao.chaerji(erji));
+		}
 		model.addAttribute("querySoftwareName",name);
 		model.addAttribute("queryStatus",type);
 		model.addAttribute("queryFlatformId",pintai);
@@ -65,11 +71,27 @@ public class AppinfoController {
 		return "appinfolist";
 	}
 	
+	@RequestMapping("/chapintai")
+	@ResponseBody
+	public Object chapintai() {
+		return JSON.toJSONString(dicdao.pintai());
+	}
+	@RequestMapping("/chayiji")
+	@ResponseBody
+	public Object chayiji() {
+		return JSON.toJSONString(catedao.chayiji());
+	}
+	
 	@RequestMapping(value="erji",method=RequestMethod.GET)
 	@ResponseBody
-	public Object erjicaidan(@RequestParam(value="pid",required=false)Integer yiji,Model model) {
+	public Object erjicaidan(@RequestParam(value="pid",required=false)Integer yiji) {
 		List<AppCategory> chaerji = catedao.chaerji(yiji);
-		model.addAttribute("categoryLevel2List",chaerji);
 		return JSON.toJSONString(chaerji);
+	}
+	
+	
+	@RequestMapping("/infoadd")
+	public String infoadd() {
+		return "appinfoadd";
 	}
 }

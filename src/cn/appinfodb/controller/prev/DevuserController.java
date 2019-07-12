@@ -29,7 +29,7 @@ public class DevuserController {
 		DevUser user = dao.denglu(devCode,devPassword);
 		if(user != null) {
 			session.setAttribute("devUserSession", user);
-			return "redirect:/prev/chaxun";
+			return "main";
 		}else {
 			throw new RuntimeException("账号或者密码错误!");
 		}
