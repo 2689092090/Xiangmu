@@ -13,7 +13,7 @@
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				<form method="post" action="list">
+				<form method="post" action="${pageContext.request.contextPath }/prev/chaxun">
 					<input type="hidden" name="pageIndex" value="1" />
 			    <ul>
 					<li>
@@ -171,7 +171,7 @@
 										<td>${appInfo.APKName }</td>
 										<td>${appInfo.softwareSize }</td>
 										<td>${appInfo.flatformName }</td>
-										<td>${appInfo.categoryLevel1Name } -> ${appInfo.categoryLevel2Name } -> ${appInfo.categoryLevel3Name }</td>
+										<td>${appInfo.categoryName1 } -> ${appInfo.categoryName2 } -> ${appInfo.categoryName3 }</td>
 										<td><span id="appInfoStatus${appInfo.id}">${appInfo.statusName }</span></td>
 										<td>${appInfo.downloads }</td>
 										<td>${appInfo.versionNo }</td>
@@ -219,33 +219,33 @@
 				<div class="row">
 					<div class="col-sm-5">
 						<div class="dataTables_info" id="datatable-responsive_info"
-							role="status" aria-live="polite">共${pages.totalCount }条记录
-							${pages.currentPageNo }/${pages.totalPageCount }页</div>
+							role="status" aria-live="polite">共${fen.zongshu }条记录
+							${fen.ye}/${fen.zongye}页</div>
 					</div>
 					<div class="col-sm-7">
 						<div class="dataTables_paginate paging_simple_numbers"
 							id="datatable-responsive_paginate">
 							<ul class="pagination">
-								<c:if test="${pages.currentPageNo > 1}">
+								<c:if test="${fen.ye > 1}">
 									<li class="paginate_button previous"><a
 										href="javascript:page_nav(document.forms[0],1);"
 										aria-controls="datatable-responsive" data-dt-idx="0"
 										tabindex="0">首页</a>
 									</li>
 									<li class="paginate_button "><a
-										href="javascript:page_nav(document.forms[0],${pages.currentPageNo-1});"
+										href="javascript:page_nav(document.forms[0],${fen.ye-1});"
 										aria-controls="datatable-responsive" data-dt-idx="1"
 										tabindex="0">上一页</a>
 									</li>
 								</c:if>
-								<c:if test="${pages.currentPageNo < pages.totalPageCount }">
+								<c:if test="${fen.ye < fen.zongye }">
 									<li class="paginate_button "><a
-										href="javascript:page_nav(document.forms[0],${pages.currentPageNo+1 });"
+										href="javascript:page_nav(document.forms[0],${fen.ye+1 });"
 										aria-controls="datatable-responsive" data-dt-idx="1"
 										tabindex="0">下一页</a>
 									</li>
 									<li class="paginate_button next"><a
-										href="javascript:page_nav(document.forms[0],${pages.totalPageCount });"
+										href="javascript:page_nav(document.forms[0],${fen.zongye });"
 										aria-controls="datatable-responsive" data-dt-idx="7"
 										tabindex="0">最后一页</a>
 									</li>

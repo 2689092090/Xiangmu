@@ -26,14 +26,14 @@ public class AppInfo {
 	
 	private String statusName;//app状态名称
 	private String flatformName;//app所属平台名称
-	private String categoryLevel3Name;//所属三级分类名称
+	private String  categoryName3;//所属三级分类名称
 	private String devName;//开发者名称
 	
 	private Integer categoryLevel1;//所属一级分类id
 	private Integer categoryLevel2;//所属二级分类id
 	
-	private String categoryLevel1Name;//所属一级分类名称
-	private String categoryLevel2Name;//所属二级分类名称
+	private String  categoryName1;//所属一级分类名称
+	private String  categoryName2;//所属二级分类名称
 	
 	private String logoPicPath;//LOGO图片URL路径
 	private String logoLocPath;//LOGO图片的服务器存储路径
@@ -71,23 +71,24 @@ public class AppInfo {
 	public void setCategoryLevel3(Integer categoryLevel3) {
 		this.categoryLevel3 = categoryLevel3;
 	}
-	public String getCategoryLevel3Name() {
-		return categoryLevel3Name;
+	
+	public String getCategoryName3() {
+		return categoryName3;
 	}
-	public void setCategoryLevel3Name(String categoryLevel3Name) {
-		this.categoryLevel3Name = categoryLevel3Name;
+	public void setCategoryName3(String categoryName3) {
+		this.categoryName3 = categoryName3;
 	}
-	public String getCategoryLevel1Name() {
-		return categoryLevel1Name;
+	public String getCategoryName1() {
+		return categoryName1;
 	}
-	public void setCategoryLevel1Name(String categoryLevel1Name) {
-		this.categoryLevel1Name = categoryLevel1Name;
+	public void setCategoryName1(String categoryName1) {
+		this.categoryName1 = categoryName1;
 	}
-	public String getCategoryLevel2Name() {
-		return categoryLevel2Name;
+	public String getCategoryName2() {
+		return categoryName2;
 	}
-	public void setCategoryLevel2Name(String categoryLevel2Name) {
-		this.categoryLevel2Name = categoryLevel2Name;
+	public void setCategoryName2(String categoryName2) {
+		this.categoryName2 = categoryName2;
 	}
 	public Integer getCategoryLevel1() {
 		return categoryLevel1;

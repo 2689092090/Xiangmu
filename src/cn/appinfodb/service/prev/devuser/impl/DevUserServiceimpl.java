@@ -14,8 +14,8 @@ public class DevUserServiceimpl implements DevUserServicedao {
 	@Resource(name="devuserMapper")
 	private DevuserMapper devusermapper;
 	@Override
-	public DevUser denglu(DevUser user) {
-		return devusermapper.denglu(user);
+	public DevUser denglu(String name,String mima) {
+		return devusermapper.denglu(name,mima);
 	}
 
 }

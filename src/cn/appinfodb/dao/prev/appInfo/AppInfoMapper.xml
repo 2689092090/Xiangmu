@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.appinfodb.dao.prev.appInfo.AppInfoMapper">
+	<select id="chaxun" resultType="AppInfo">
+		SELECT a.`softwareName`,a.`APKName`,a.`softwareSize`,
+		(
+		SELECT valueName FROM data_dictionary WHERE typecode = 'APP_FLATFORM'
+		AND valueid = a.`flatformId`
+		) flatFormName, a.`flatformId`,
+		( SELECT categoryName FROM `app_category` WHERE id =
+		a.`categoryLevel1`) categoryName1,
+		a.`categoryLevel1`,
+		( SELECT categoryName FROM `app_category` WHERE id =
+		a.`categoryLevel2`) categoryName2,
+		a.`categoryLevel2`,
+		( SELECT categoryName FROM `app_category` WHERE id =
+		a.`categoryLevel3`) categoryName3,
+		a.`categoryLevel3`,
+		(SELECT valueName FROM data_dictionary WHERE typecode = 'APP_STATUS' AND
+		valueId = a.`status`) statusName,
+		a.`status`,
+		a.`downloads`,
+		(SELECT versionNo FROM `app_version` WHERE id = a.`versionId`) versionNo,
+		a.`versionId` FROM `app_info` a
+		<where>
+		     <if test="name !=null and name !=''">softwareName like concat('%',#{name},'%')</if>
+		     <if test="type != 0">and status = #{type}</if>
+		     <if test="pintai !=0">and flatformId = #{pintai}</if>
+		     <if test="yiji != 0">and categoryLevel1 = #{yiji}</if>
+		     <if test="erji != 0">and categoryLevel2 = #{erji}</if>
+		     <if test="sanji != 0">and categoryLevel3 = #{sanji}</if>
+		</where> limit #{backsize},5
+	</select>
+	
+	<select id="count" resultType="int">
+	    select count(*) from app_info 
+	    <where>
+		     <if test="name !=null and name !=''">softwareName like concat('%',#{name},'%')</if>
+		     <if test="type != 0">and status = #{type}</if>
+		     <if test="pintai !=0">and flatformId = #{pintai}</if>
+		     <if test="yiji != 0">and categoryLevel1 = #{yiji}</if>
+		     <if test="erji != 0">and categoryLevel2 = #{erji}</if>
+		     <if test="sanji != 0">and categoryLevel3 = #{sanji}</if>
+		</where>
+	</select>
+</mapper>
